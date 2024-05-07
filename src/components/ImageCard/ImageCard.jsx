@@ -1,9 +1,9 @@
 import css from "./ImageCard.module.css";
 
-export default function ImageCard({ href, alt, onClick }) {
+export default function ImageCard({ href: { small, regular }, alt, onOpen }) {
   return (
     <div className={css.card}>
-      <img src={href} alt={alt} onClick={onClick}></img>
+      <img src={small} alt={alt} onClick={() => onOpen(regular)}></img>
     </div>
   );
 }

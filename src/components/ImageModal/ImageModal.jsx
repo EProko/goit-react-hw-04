@@ -26,7 +26,7 @@ export default function ImageModal({ onClose, state, img }) {
       <button className={css.btn} onClick={onClose}>
         X
       </button>
-      <img className={css.img} src={img.href} alt={img.alt} width="500px" />
+      <img className={css.img} src={img} alt="image" width="500px" />
     </Modal>
   );
 }

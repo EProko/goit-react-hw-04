@@ -17,7 +17,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalImg, setModalImg] = useState({});
+  const [modalImg, setModalImg] = useState("");
 
   const handleSearch = (newQuery) => {
     setQuery(newQuery);
@@ -29,16 +29,13 @@ export default function App() {
     setPage(page + 1);
   };
 
-  function openModal() {
+  function openModal(regular) {
+    setModalImg(regular);
     setIsOpen(true);
-
-    console.log(modalImg);
   }
 
   const closeModal = (event) => {
     if (event.key === "ESC" || event.target === event.currentTarget) {
-      console.log(event.target);
-      console.log(event.currentTarget);
       setIsOpen(false);
     }
   };
@@ -53,7 +50,6 @@ export default function App() {
         setIsLoading(true);
         const data = await fetchImages(query, page);
 
-        console.log(data);
         setImages((prevImages) => {
           return [...prevImages, ...data];
         });
@@ -75,6 +71,7 @@ export default function App() {
         state={modalIsOpen}
         img={modalImg}
       />
+
       <SearchBar onSubmit={handleSearch} />
 
       {images.length > 0 && (
