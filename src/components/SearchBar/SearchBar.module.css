@@ -1,0 +1,21 @@
+.header {
+  background-color: rgb(50, 224, 207);
+  padding: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input {
+  width: 300px;
+
+  border-radius: 8px;
+  padding: 5px;
+  border: none;
+}
+
+.header > form > input {
+  padding-left: 10px;
+}
